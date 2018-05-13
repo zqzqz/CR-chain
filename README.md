@@ -18,7 +18,7 @@ truffle develop  # enter console, default to listen port 9545
 * start database
 ```bash
 mongod --dbpath={your path}
-mongo   // interact with db in another terminal
+mongo   # interact with db in another terminal
 ```
 
 * install nodejs packages
@@ -38,11 +38,11 @@ npm run cli
 ```
 listen to 3001
 
-## Note
+## Notes
 * If you want to install other nodejs packages, install them locally.
 ```bash
 npm install {package name} --save
  ```
 * Our client may use Metamask plugin which is available in Chrome or Firefox. See [Truffle Tutorial](http://truffleframework.com/tutorials/pet-shop)
-* We mainly use web3 package to implement ethereum contract Apps. There are also python implementation of web3.
+* We mainly use web3 package to implement ethereum contract Apps. Also there is python implementation of web3.
 * ```bittorent-dht``` has been included in package.json
