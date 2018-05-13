@@ -2,9 +2,47 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <script src="/javascripts/jquery.min.js"></script>
+      <script src="/javascripts/app.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	    <script src="/javascripts/web3.min.js"></script>
+      <script src="/javascripts/truffle-contract.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel='stylesheet' href='/stylesheets/style.css' />
+      
   </head>
   <body>
-    {{{body}}}
+      <div class="container">
+        <div class="container col-md-4">
+          <div class="user">
+            <label for="username">LOGIN AS: </label>
+              <select id="username">
+                <option value="visitor">visitor</option>
+                <option value="admin">admin</option>
+                <option value="user1">user1</option>
+              </select>
+          </div>
+          <div class="navbox">
+            <ul class="nav nav-tabs nav-stacked">
+
+              <li><a href="/">Home Page</a></li>
+              <li><a href="/file-list">File List</a></li>
+              <li><a href="/my-file">My Files</a></li>
+              <li><a href="/request">My requests</a></li>
+              <li><a href="/message">My Messages</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="page-content container col-md-8">
+          <div class="page-header">
+            <h1>{{title}}</h1>
+          </div>
+          {{{body}}}
+        </div>
+      </div>
   </body>
 </html>

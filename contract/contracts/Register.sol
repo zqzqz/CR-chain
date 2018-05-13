@@ -9,9 +9,9 @@ contract Register {
 
     mapping(bytes20 => File) fileList;
 
-    event CreateFile(address _owner, bytes20 _fid);
+    event CreateFile(address owner, bytes20 fid, string title);
 
-    function TinyGame() public {
+    function Register() public {
 
     }
 
@@ -21,10 +21,10 @@ contract Register {
         newFile.title = _title;
         newFile.owner = msg.sender;
         fileList[_fid] = newFile;
-        CreateFile(msg.sender, _fid);
+        CreateFile(msg.sender, _fid, _title);
     }
 
-    function getFile(bytes20 _fid) public returns (string, address) {
+    function getFile(bytes20 _fid) public view returns (string, address) {
         File storage file = fileList[_fid];
         return (file.title, file.owner);
     }

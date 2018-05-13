@@ -36,7 +36,7 @@ listen to port 3000
 ```bash
 npm run cli
 ```
-listen to 3001
+listen to port 3001
 
 ## Notes
 * If you want to install other nodejs packages, install them locally.
