@@ -59,16 +59,35 @@ App = {
      * callee of create button
      */
     createFile: function() {
-      var id = $('#id').val();
-      var title = $('#title').val();
-      console.log(id, title);
-      App.contracts.Register.deployed().then(function(instance) {
-        instance.createFile.sendTransaction(id, title, {from: App.account});
-      }).then(function(value) {
-        console.log("operation succeed");
-      }).catch(function(e) {
-        console.log(e);
-        console.error("Operation failed");
+      $('#upload-form').on('click', '#create', function() {
+        var formData = new FormData($("#upload-form")[0]);
+        $.ajax({
+          url: '/file',
+          type: 'POST',
+          data: formData,
+          timeout: 10000,
+          processData: false,
+          contentType: false,
+          success: function(data) {
+            App.contracts.Register.deployed().then(function(instance) {
+              if (! data.success) {
+                console.error(data.message);
+              } else {
+                instance.createFile.sendTransaction(data.fid, formData.title, 
+                    formData.keyword, formData.summary, data.hash, {from: App.account});
+                }
+            }).then(function(value) {
+              console.log("operation succeed");
+            }).catch(function(e) {
+              console.log(e);
+              console.error("Operation failed");
+            });
+              
+          },
+          error: function(err) {
+            alert('file creation failed!');
+          }
+        });
       });
     },
 } 
