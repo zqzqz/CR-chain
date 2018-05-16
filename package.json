@@ -16,6 +16,7 @@
     "magnet-uri": "^5.1.7",
     "mongoose": "^5.1.0",
     "morgan": "~1.9.0",
+    "request": "^2.86.0",
     "serve-favicon": "~2.4.5",
     "truffle-contract": "^3.0.5",
     "web3": "0.20.0",

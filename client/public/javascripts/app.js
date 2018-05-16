@@ -45,14 +45,14 @@ App = {
       
                 App.accounts = accs;
                 App.account = App.accounts[0];
-                console.log("account normal");
+                console.log("account normal: ", App.account);
+                return App.loadPage();
             }); 
-            return App.loadPage();
         });  
     },  
      
     loadPage: function() {
-        // load page
+        MyPage.loadPage();
     },
   
     /*
@@ -75,8 +75,9 @@ $(function() {
     $(window).load(function() {
         
         App.init();
-  
     });
 });
+
+
   
   
