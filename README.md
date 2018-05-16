@@ -9,7 +9,7 @@ homework project - software engineering
 ## Get started
 * compile contract and setup ethereum testnet
 ```bash
-cd contract
+cd contract/contracts
 truffle develop  # enter console, default to listen port 9545
 >> compile
 >> migrate
@@ -45,4 +45,4 @@ npm install {package name} --save
  ```
 * Our client may use Metamask plugin which is available in Chrome or Firefox. See [Truffle Tutorial](http://truffleframework.com/tutorials/pet-shop)
 * We mainly use web3 package to implement ethereum contract Apps. Also there is python implementation of web3.
-* ```bittorent-dht``` has been included in package.json
+* ```webtorrent``` has been included in package.json. see [WebTorrent doc](https://webtorrent.io/docs)
