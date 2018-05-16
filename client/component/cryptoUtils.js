@@ -8,7 +8,8 @@ var Utils = {
         if (iv == 0 || iv == null) {
             civ = default_iv;
         }
-        var cipher = crypto.createCipheriv('aes-128-cbc', key.toString('hex'), civ);
+        var cryptkey = crypto.createHash('sha256').update(key).digest();
+        var cipher = crypto.createCipheriv('aes-256-cbc', cryptkey, civ);
         var crypted = cipher.update(data, 'binary', 'binary');
         crypted += cipher.final('binary');
         return crypted;
@@ -19,7 +20,8 @@ var Utils = {
         if (iv == 0 || iv == null) {
             civ = default_iv;
         }
-        var decipher = crypto.createDecipheriv('aes-128-cbc', key.toString('hex'), civ);
+        var cryptkey = crypto.createHash('sha256').update(key).dinpgest();
+        var decipher = crypto.createDecipheriv('aes-256-cbc', cryptkey, civ);
         var decoded = decipher.update(crypted, 'binary', 'binary');
         decoded += decipher.final('binary');
         return decoded;
