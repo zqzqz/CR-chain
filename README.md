@@ -2,9 +2,18 @@
 homework project - software engineering
 
 ## Depenencies
-* truffle
 * npm & nodejs
+* truffle
 * mongodb
+
+## Prepare Environment
+The basic environment is nodejs, along with database and browser plugin. Theoretically windows and linux both works...Let's use linux.  
+* Install node first (recommend to install using latest version deb package rather than apt)  
+* Install npm (```apt-get install npm``` is fine. A toolkit to manage nodejs packages. Other packages can be installed easily by npm)  
+* Install Truffle (ethereum contract framework) ```npm install -g truffle``` (See truffle website for more info)  
+* Install mongodb (search "mongodb" on browser directly)  
+* Install browser plugin Metamask (chrome or firefox)  
+Now you are ready to go!
 
 ## Get started
 * compile contract and setup ethereum testnet
