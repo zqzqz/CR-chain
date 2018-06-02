@@ -18,7 +18,7 @@ module.exports = {
     applyTimestamp: {type:String, required:true},
     resTimestamp: {type:String, required:true},
     secret: {type:String},
-    stat: {type:int},
+    stat: {type:Number},
     fid: {type:String, required:true} 
   }
 };

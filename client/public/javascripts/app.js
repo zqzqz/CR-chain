@@ -69,6 +69,20 @@ App = {
             console.error("Operation failed");
         });
     },
+
+    /*
+     *  create a nre Handler contarct
+     */
+    newHandler: function(fid, price) {
+        console.log(fid, price);
+        App.contracts.Register.deployed().then(function(instance) {
+            instance.newHandler.sendTransaction(fid, price, {from:App.account});
+        }).then(function(value) {
+            console.log("operation newHandler succeed");
+        }).catch(function(e) {
+            console.log("operation newHandler failed", e);
+        })
+    }
 } 
   
 $(function() {

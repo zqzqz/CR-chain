@@ -43,6 +43,26 @@ var MyPage = {
                     template.find('.owner').text(data[i].owner);
                     myfile.append(template.html());
                 }
+
+                $('.handle').each(function(index, element) {
+                    $(this).click(function() {
+                        var handler = $(this).siblings('.handler').text();
+                        var fid = $(this).siblings('.fid').text();
+                        console.log("fid", fid);
+                        var price = 0;
+                        if (handler.length < 40) {
+                            var msg=prompt("Choose a price: ","");
+                            if(msg) {
+                                price = parseInt(msg);
+                                App.newHandler(fid, price);
+                            } else {
+                                alert("Incorrect price number!")
+                            }
+                        } else {
+                            alert("The handler is already in function!")
+                        }
+                    });                        
+                });
             },
             error: function(err) {
                 console.error(err);
