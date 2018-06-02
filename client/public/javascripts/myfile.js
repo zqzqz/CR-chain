@@ -21,6 +21,32 @@ $(function() {
             }
         });
     });
+
+    $('#test-download').click(function() {
+        
+        var _fid = "2879a2d8ea6ae8232a894707777716ad93c018cc";
+        var _title = "aaaaa.txt";
+        var data = {};
+        data.fid = _fid;
+        data.title = _title;
+        $.ajax({
+            url: '/file/torrent',
+            type: 'GET',
+            data: data,
+            success: function(data) {
+                /*
+                MyPage.waitForSeed().then(function(fid) {
+                    clearInterval(MyPage.interval_seed);
+                    console.log("download complete")
+                });*/
+                window.location.href = '/file/download/?fid='+_fid+"&title="+_title;
+            },
+            error: function(err) {
+                console.error('file download failed!');
+                window.location.href = '/file/download/?fid='+_fid+"&title="+_title;
+            }
+        });
+    });
 })
 
 var MyPage = {
@@ -72,14 +98,14 @@ var MyPage = {
         })
     },
 
-    waitForSeed: function(hash) {
+    waitForSeed: function() {
         return new Promise(function(resolve, reject) {
             // Print out progress every 2 seconds
             interval_seed = setInterval(function () {
                 $.ajax({
                     url: '/file/seed',
                     type: 'GET',
-                    data: hash,
+                    data: {},
                     success: function(data) {
                         $('.torrent-status').empty();
                         $('.torrent-status').append('<p>waiting for torrent seed ... </p>');

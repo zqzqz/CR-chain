@@ -8,10 +8,10 @@ module.exports = {
     owner: {type:String, required:true},
     keyword: {type:String},
     summary: {type:String},
-    uploadTimestamp : {type:String, required:true},
+    uploadTimestamp : {type:String},
     hash: {type:String, required:true},
-    handler : {type:String, required:true},
-    _price : {type:Number, required:true}
+    handler : {type:String},
+    _price : {type:Number}
   },
   request: {
     from: {type:String, required:true},
@@ -21,6 +21,6 @@ module.exports = {
     handler: {type:String, required:true},
     message: {type:String},
     stat: {type:Number}
-  },
+  }
 };
 

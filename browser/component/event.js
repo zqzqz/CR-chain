@@ -18,6 +18,8 @@ contracts.Register.CreateFile({})
     console.log("listen create file: ", result['args']);
     // do something
     var message = result['args'];
+    var now = new Date();
+    message.uploadTimestamp = now;
     var file = global.dbHandler.getModel('file');
     file.create(message, function (err, doc) {
       if (err) {

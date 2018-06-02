@@ -7,6 +7,7 @@ var Torrent = {
     message: [],
 
     onTorrent: function (torrent) {
+        console.log("torrent!")
         Torrent.log('Got torrent metadata!')
         Torrent.log(
         'Torrent info hash: ' + torrent.infoHash + ' ' +
@@ -24,9 +25,9 @@ var Torrent = {
         }, 2000)
 
         torrent.on('done', function () {
+            console.log("enter done")
             Torrent.log('Progress: 100%')
             clearInterval(interval)
-            Torrent.fid = torrent.infoHash;
             // Render all files into to the page
             torrent.files.forEach(function (file) {
                 file.appendTo('.Torrent.log')
@@ -37,6 +38,7 @@ var Torrent = {
                     Torrent.log('<a href="' + url + '">Download full file: ' + file.name + '</a>')
                 })
             })
+            Torrent.fid = torrent.infoHash;
         })    
     },
 
@@ -49,7 +51,6 @@ var Torrent = {
         Torrent.fid = torrent.infoHash;
         torrent.on('infoHash', function () {
             Torrent.log('Progress: 100%')
-            clearInterval(interval)
             Torrent.fid = torrent.infoHash;
         })
     },
