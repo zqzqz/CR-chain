@@ -41,6 +41,8 @@ var MyPage = {
                     template.find('.fid').text(data[i].fid);
                     template.find('.hash').text(data[i].hash);
                     template.find('.owner').text(data[i].owner);
+                    template.find('.handler').text(data[i].handler);
+                    template.find('.price').text(data[i]._price);
                     myfile.append(template.html());
                 }
 

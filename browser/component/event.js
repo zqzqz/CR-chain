@@ -33,6 +33,14 @@ contracts.Register.CreateFile({})
     console.log("listen new Handler: ", result['args']);
     // do something
     var message = result['args'];
+    var file = global.dbHandler.getModel('file');
+    file.update({fid:message.fid}, {$set: message}, function (err, doc) {
+      if (err) {
+        console.log("newHandler", err);
+      } else {
+        console.log("newHandler", message.handler);
+      }
+    });
   });
 
 
