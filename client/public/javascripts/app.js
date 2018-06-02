@@ -70,6 +70,50 @@ App = {
         });
     },
 
+    deleteFile: function(fid) {
+        App.contracts.Register.deployed().then(function(instance) {
+            instance.deleteFile.sendTransaction(fid, {from: App.account});
+        }).then(function(value) {
+            console.log("operation succeed");
+        }).catch(function(e) {
+            console.log(e);
+            console.error("Operation failed");
+        });
+    },
+
+    requestHandler: function(addr, message) {
+        App.contracts.Register.deployed().then(function(instance) {
+            instance.requestHandler.sendTransaction(addr, message, {from: App.account});
+        }).then(function(value) {
+            console.log("operation succeed");
+        }).catch(function(e) {
+            console.log(e);
+            console.error("Operation failed");
+        });
+    },
+
+    respondHandler: function(addr, from, password) {
+        App.contracts.Register.deployed().then(function(instance) {
+            instance.respondHandler.sendTransaction(addr, from, password, {from: App.account});
+        }).then(function(value) {
+            console.log("operation succeed");
+        }).catch(function(e) {
+            console.log(e);
+            console.error("Operation failed");
+        });
+    },
+
+    cancelRequest: function(addr) {
+        App.contracts.Register.deployed().then(function(instance) {
+            instance.cancelRequest.sendTransaction(addr, {from: App.account});
+        }).then(function(value) {
+            console.log("operation succeed");
+        }).catch(function(e) {
+            console.log(e);
+            console.error("Operation failed");
+        });
+    },
+
     /*
      *  create a nre Handler contarct
      */
@@ -82,7 +126,10 @@ App = {
         }).catch(function(e) {
             console.log("operation newHandler failed", e);
         })
-    }
+    },
+
+
+
 } 
   
 $(function() {
