@@ -26,10 +26,11 @@ $(function() {
 var MyPage = {
     interval_seed: null,
     loadPage: function() {
+
         $.ajax({
             url:'/query/file',
             type: 'GET',
-            data: {owner:App.account},
+            // data: {owner:App.account$},
             success: function(data) {
                 var data = JSON.parse(data);
                 var myfile = $('#myfile');
