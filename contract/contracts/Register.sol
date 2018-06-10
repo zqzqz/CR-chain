@@ -1,5 +1,5 @@
 pragma solidity ^0.4.17;
-import "Handler.sol";
+import "./Handler.sol";
 
 
 contract Register {
@@ -24,10 +24,10 @@ contract Register {
     event CreateFile(address owner, bytes20 fid, string title, 
                      string keyword, string summary, bytes20 hash);
     event DeleteFile(address owner, bytes20 fid);
-    event NewHandler(address handler, bytes20 fid, uint _price);
-    event RequestHandler(address handler, address from, string message);
-    event RespondHandler(address handler, address from, string password);
-    event CancelRequest(address handler, address from);
+    event NewHandler(address hid, address owner, bytes20 fid, uint price);
+    event RequestHandler(address hid, address from, string message);
+    event RespondHandler(address hid, address from, string password);
+    event CancelRequest(address hid, address from);
 
     function Register() public {
 
@@ -76,7 +76,7 @@ contract Register {
         handler.addr = newContract;
         handler.status = 1;
         handlers[_fid] = handler;
-        NewHandler(newContract, _fid, _price);
+        NewHandler(newContract, msg.sender, _fid, _price);
     }
 
     function requestHandler(address _addr, string _message) public payable {

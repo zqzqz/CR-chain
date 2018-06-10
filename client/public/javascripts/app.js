@@ -81,9 +81,10 @@ App = {
         });
     },
 
-    requestHandler: function(addr, message) {
+    requestHandler: function(addr, message, price) {
+        console.log(addr, message);
         App.contracts.Register.deployed().then(function(instance) {
-            instance.requestHandler.sendTransaction(addr, message, {from: App.account});
+            instance.requestHandler.sendTransaction(addr, message, {from: App.account, value:price});
         }).then(function(value) {
             console.log("operation succeed");
         }).catch(function(e) {

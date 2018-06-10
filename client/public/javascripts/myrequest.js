@@ -4,7 +4,7 @@ var MyPage = {
         $.ajax({
             url:'/query/request',
             type: 'GET',
-            data: {owner:App.account$},
+            data: {owner:App.account},
             success: function(data) {
                 var data = JSON.parse(data);
                 var myrequest = $('#myrequest');

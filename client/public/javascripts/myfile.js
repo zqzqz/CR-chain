@@ -52,12 +52,14 @@ $(function() {
 var MyPage = {
     interval_seed: null,
     loadPage: function() {
+        $('#myfile').empty();
 
         $.ajax({
             url:'/query/file',
             type: 'GET',
-            // data: {owner:App.account$},
+            data: {owner:App.account},
             success: function(data) {
+                console.log(data)
                 var data = JSON.parse(data);
                 var myfile = $('#myfile');
                 var template = $('#fileTemplate');
@@ -68,8 +70,15 @@ var MyPage = {
                     template.find('.fid').text(data[i].fid);
                     template.find('.hash').text(data[i].hash);
                     template.find('.owner').text(data[i].owner);
-                    template.find('.handler').text(data[i].handler);
-                    template.find('.price').text(data[i]._price);
+                    if (typeof(data[i].handler[0]) !== 'undefined') {
+                        template.find('.handler').text(data[i].handler[0].hid);
+                        template.find('.price').text(data[i].handler[0].price);
+                        template.find('.handle').css({"display":"none"});
+                    } else {
+                        template.find('.handler').text("Not Registered");
+                        template.find('.price').text("Not Registered");
+                        template.find('.handle').css({"display":"inline"});
+                    }
                     myfile.append(template.html());
                 }
 
